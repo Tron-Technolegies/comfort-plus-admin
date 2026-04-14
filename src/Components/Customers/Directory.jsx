@@ -59,59 +59,63 @@ const Directory = () => {
 
             </div>
 
+
+
             <div className='h-[70px] w-[650px] border-b-[1px] border-[#00000014]'>
 
             </div>
 
-            <div className='flex flex-col justify-around items-center h-[280px] text-[12px]'>
 
-                <div className='h-[19px] w-[600px] bg-red-500 text-[12px] '>
-                    <p className='text-[16px] font-semibold'>Active Orders</p>
+
+            <div className='flex flex-col justify-around items-center h-[280px] p-[15px]'>
+
+                <div className='h-[19px] w-[600px] text-[12px]'>
+                    <p className='text-[16px] font-semibold'>Recent Order History</p>
                 </div>
 
-                <div className='h-[200px] w-[600px] bg-blue-500'>
+                <div className='h-[200px] w-[600px]'>
                   <div className='flex justify-between items-center border-b-[1px] border-[#00000014]'>
 
-                    <div className='h-[40px] w-[103.05px] flex  items-center'>
-                      <p className='text-[12px] font-medium'>Order ID</p>
+                    <div className='h-[40px] w-[103.05px] flex  items-center p-[12px]'>
+                      <p className='text-[12px] font-medium text-[#94A3B8]'>Order ID</p>
                     </div>
-                    <div className='h-[40px] w-[117.77px] flex items-center'>
-                      <p className='text-[12px] font-medium'>Customer</p>
+                    <div className='h-[40px] w-[117.77px] flex items-center  p-[12px]'>
+                      <p className='text-[12px] font-medium text-[#94A3B8]'>Customer</p>
                     </div>
-                    <div className='h-[40px] w-[134.72px] flex items-center'>
-                      <p className='text-[12px] font-medium'>Type</p>
+                    <div className='h-[40px] w-[134.72px] flex items-center p-[12px]'>
+                      <p className='text-[12px] font-medium text-[#94A3B8]'>Type</p>
                     </div>
-                    <div className='h-[40px] w-[114.23px] flex items-center'>
-                      <p className='text-[12px] font-medium'>Status</p>
+                    <div className='h-[40px] w-[114.23px] flex items-center p-[12px]'>
+                      <p className='text-[12px] font-medium text-[#94A3B8]'>Status</p>
                     </div>
-                    <div className='h-[40px] w-[90.31px] flex items-center'>
-                      <p className='text-[12px] font-medium'>Amount</p>
+                    <div className='h-[40px] w-[90.31px] flex items-center p-[12px]'>
+                      <p className='text-[12px] font-medium text-[#94A3B8]'>Amount</p>
                     </div>
-                    <div className='h-[40px] w-[115.92px] flex items-center'>
-                      <p className='text-[12px] font-medium'>Amount</p>
+                    <div className='h-[40px] w-[115.92px] flex items-center p-[12px]'>
+                      <p className='text-[12px] font-medium text-[#94A3B8]'>Amount</p>
                     </div>
                       
                   </div>
 
                   <div className='flex justify-between items-center border-b-[1px] border-[#00000014]'>
 
-                    <div className='h-[40px] w-[103.05px] flex  items-center'>
-                      <p className='text-[12px] font-medium'>Order ID</p>
+                    <div className='h-[52px] w-[103.05px] flex  items-center p-[12px]'>
+                      <p className='text-[13px] font-medium'>ORD-5918</p>
                     </div>
-                    <div className='h-[40px] w-[117.77px] flex items-center'>
-                      <p className='text-[12px] font-medium'>Customer</p>
+                    <div className='h-[52px] w-[117.77px] flex items-center p-[12px]'>
+                      <p className='text-[13px] font-medium'>Oct 24, 2023</p>
                     </div>
-                    <div className='h-[40px] w-[134.72px] flex items-center'>
-                      <p className='text-[12px] font-medium'>Type</p>
+                    <div className='h-[52px] w-[134.72px] flex items-center p-[12px]'>
+                      <p className='text-[13px] font-medium'>Routes</p>
                     </div>
-                    <div className='h-[40px] w-[114.23px] flex items-center'>
-                      <p className='text-[12px] font-medium'>Status</p>
+                    <div className='h-[52px] w-[114.23px] flex items-center p-[12px]'>
+                      <p className='text-[12px] font-medium'>Normal</p>
                     </div>
-                    <div className='h-[40px] w-[90.31px] flex items-center'>
-                      <p className='text-[12px] font-medium'>Amount</p>
+                    <div className='h-[52px] w-[90.31px] flex items-center p-[12px]'>
+                      <p className='text-[13px] font-medium'>$450.00</p>
                     </div>
-                    <div className='h-[40px] w-[115.92px] flex items-center'>
-                      <p className='text-[12px] font-medium'>Amount</p>
+                    <div className='h-[52px] w-[115.92px] flex items-center p-[12px]'>
+                      <p className='text-[12px] font-medium'>Completed</p>
                     </div>
 
                   </div>

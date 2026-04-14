@@ -2,7 +2,13 @@ import React from 'react'
 
 const Cards = () => {
   return (
-    <div className='flex flex-col p-6'>
+    <div className='flex flex-col p-6 gap-7'>
+
+        <div className="h-[50px] w-[503.84px]">
+            <p className='text-[24px] font-semibold'>Customers</p>
+            <p className='text-[14px] text-[#94A3B8]'>Manage individual and business accounts, and view detailed order histories.</p>
+        </div>
+
         <div className="grid grid-cols-3 gap-x-11">
 
             <div className="p-5 h-[134px] w-[280px] rounded-[8px] shadow">
