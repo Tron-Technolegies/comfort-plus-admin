@@ -88,7 +88,7 @@ const Navbar = () => {
             <p className='text-[11px] font-semibold py-1 p-[15px]'>MANAGEMENT</p>
 
             <NavLink
-            to="k"
+            to="S_&_D"
             className={({ isActive }) =>`flex text-[14px] font-medium gap-3 py-3 rounded-lg p-[15px] transition hover:scale-105 ${
               isActive
                 ? "bg-[#3A82A4] text-white"

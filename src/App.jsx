@@ -4,6 +4,7 @@ import Layout from './Layout/Layout'
 import Overview from './Pages/Overview'
 import Customer from './Pages/Customer'
 import Ordertracking from './Pages/Ordertracking'
+import Staff_Driver from './Pages/Staff_Driver'
 
 
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
 
       {
           path : 'Order', element:<Ordertracking/>
+        },
+
+      {
+          path : 'S_&_D', element:<Staff_Driver/>
         },
     ],
   },

@@ -1,14 +1,21 @@
 @import "tailwindcss";
 
-*{font-family: 'Inter', sans-serif;}
+/* *{font-family: 'Inter', sans-serif;} */
+body {
+  font-family: 'Inter', sans-serif;
+}
 
+/* ::-webkit-scrollbar {
+  display: none;
+} */
 ::-webkit-scrollbar{
     width: 5px;
 }
 ::-webkit-scrollbar-track{
-    background: #E6F0FF
+    background: #E6F0FF;
+    border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb{
     background:#3A82A4;
-    border-radius: 8px;
+    border-radius: 10px;
 }
