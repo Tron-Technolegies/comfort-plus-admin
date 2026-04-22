@@ -92,10 +92,10 @@ const Progress = () => {
                     </div>
                     <div className='flex gap-3'>
                         <button className="h-[33px] w-[120px] border-[1px] border-[#00000014] rounded text-[12px] flex justify-around items-center">
-                            <p>Details</p>
+                            <p>Update</p>
                         </button>
                         <button className="h-[33px] w-[120px] bg-[#3A82A4] text-white border-[1px] border-[#00000014] rounded text-[12px] flex justify-around items-center">
-                            <p>Start Process</p>
+                            <p>Mark Ready</p>
                         </button>
                     </div>
                 </div>

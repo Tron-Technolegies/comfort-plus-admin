@@ -5,6 +5,8 @@ import Overview from './Pages/Overview'
 import Customer from './Pages/Customer'
 import Ordertracking from './Pages/Ordertracking'
 import Staff_Driver from './Pages/Staff_Driver'
+import Popular_Times from './Pages/Popular_Times'
+import Services_Items from './Pages/Services_Items'
 
 
 const router = createBrowserRouter([
@@ -25,7 +27,15 @@ const router = createBrowserRouter([
         },
 
       {
-          path : 'S_&_D', element:<Staff_Driver/>
+          path : 'Staff', element:<Staff_Driver/>
+        },
+
+      {
+          path : 'times', element:<Popular_Times/>
+        },
+
+      {
+          path : 'services', element:<Services_Items/>
         },
     ],
   },

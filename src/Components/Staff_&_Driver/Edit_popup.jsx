@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { RxCross2 } from "react-icons/rx";
 import api from '../../api/Api';
 
 
-const Edit_popup = ({setShow, staff,}) => {
+const Edit_popup = ({setShow, staff, setRefresh}) => {
 
     // const [Updatestaff, setUpdatestaff] = useState([]);
     // const [loading, setLoading] = useState(true);
@@ -13,42 +13,35 @@ const Edit_popup = ({setShow, staff,}) => {
     const [phone, setPhone] = useState(staff.phone);
     const [role, setRole] = useState(staff.role);
 
-    // useEffect(() => {
-    // api.get(`admin/edit_staff/${staff.id}/`,{
-    //     name,
-    //     email,
-    //     phone,
-    //     role
-    // })
-    //     .then((res) => {
-    //     console.log(res.data);
-    //     setUpdatestaff(res.data);
-    //     setLoading(false);
-    //     })
-    //     .catch((err) => {
-    //     console.error(err);
-    //     setLoading(false);
-    //     });
-    // }, []);
+    const [status, setStatus] = useState(staff.status || "Active");
 
-    // if (loading) {
-    // return <h2>Loading...</h2>;
-    // }
+    
     const handleUpdate = () => {
     api.put(`edit_staff/${staff.id}/`, {
         name,
         email,
         phone,
-        role
+        role,
+        status
     })
     .then((res) => {
         console.log("SUCCESS:", res.data);
+
+        setRefresh(prev => !prev);
         setShow(false);
     })
     .catch(err => {
         console.error("ERROR:", err.response || err);
     });
     };
+
+
+
+    useEffect(() => {
+    if (staff) {
+        setStatus(staff.status || "Active");
+    }
+    }, [staff]);
 
   return (
     <div
@@ -77,7 +70,7 @@ const Edit_popup = ({setShow, staff,}) => {
                 <label className="text-sm font-medium mb-1">Email</label>
                 <input value={email} onChange={(e) => setEmail(e.target.value)}
                 type="text"
-                placeholder="Enter name"
+                placeholder="Enter email"
                 className="border border-[#00000014] p-2 rounded outline-none focus:ring-2 focus:ring-[#3A82A4]"
                 />
             </div>
@@ -86,7 +79,7 @@ const Edit_popup = ({setShow, staff,}) => {
                 <label className="text-sm font-medium mb-1">Phone</label>
                 <input value={phone} onChange={(e) => setPhone(e.target.value)}
                 type="text"
-                placeholder="Enter name"
+                placeholder="Enter phone no"
                 className="border border-[#00000014] p-2 rounded outline-none focus:ring-2 focus:ring-[#3A82A4]"
                 />
             </div>
@@ -104,7 +97,11 @@ const Edit_popup = ({setShow, staff,}) => {
 
             <div className="flex flex-col w-full">
                 <label className="text-sm font-medium mb-1">Status</label>
-                <select className="w-full border border-[#00000014] p-2 rounded outline-none focus:ring-2 focus:ring-[#3A82A4] bg-[#F9FAFB]">
+                <select
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
+                className="w-full border border-[#00000014] p-2 rounded outline-none focus:ring-2 focus:ring-[#3A82A4] bg-[#F9FAFB]"
+                >
                     <option value="Active">Active</option>
                     <option value="Inactive">Inactive</option>
                 </select>
@@ -113,7 +110,7 @@ const Edit_popup = ({setShow, staff,}) => {
         </div>
 
         <div className="flex justify-end">
-            <button onClick={handleUpdate} className="bg-[#3A82A4] h-[40px] w-[120px] rounded-[20px]">
+            <button onClick={handleUpdate} className="bg-[#3A82A4] h-[35px] w-[120px] rounded-[20px]">
                 Save changes
             </button>
         </div>
