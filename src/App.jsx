@@ -1,12 +1,14 @@
 import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './Layout/Layout'
-import Overview from './Pages/Overview'
 import Customer from './Pages/Customer'
 import Ordertracking from './Pages/Ordertracking'
 import Staff_Driver from './Pages/Staff_Driver'
 import Popular_Times from './Pages/Popular_Times'
 import Services_Items from './Pages/Services_Items'
+import Dashboard from './Pages/Dashboard'
+import Service from './Components/Services & Items/Service'
+import Item from './Components/Services & Items/Item'
 
 
 const router = createBrowserRouter([
@@ -15,7 +17,7 @@ const router = createBrowserRouter([
     element: <Layout/>,
     children: [
       {
-          index : true, element:<Overview/>
+          index : true, element:<Dashboard/>
         },
 
       {
@@ -35,7 +37,17 @@ const router = createBrowserRouter([
         },
 
       {
-          path : 'services', element:<Services_Items/>
+          path : 'services',
+          element:<Services_Items/>,
+          children: [
+            {
+              index: true, element: <Service/>
+            },
+
+            {
+              path: 'item', element: <Item/>
+            },
+          ]
         },
     ],
   },

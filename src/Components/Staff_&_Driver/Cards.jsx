@@ -159,12 +159,9 @@ const Cards = () => {
 
                 <div className="h-[52px] w-[115.92px] flex items-center gap-[15px] p-[12px]">
                     
-                    <div>
-                        {/* Button */}
-                        <button onClick={() => { setSelectedStaff(staff); setShow(true);}}>
-                        <FiEdit />
-                        </button>
-                    </div>
+                    <button onClick={() => { setSelectedStaff(staff); setShow(true);}}>
+                      <FiEdit />
+                    </button>
 
                     <button onClick={() => handleDelete(staff.id)}>
                         <img className="h-[23px]" src="cp delete.svg" alt="" />
