@@ -5,9 +5,57 @@ import { CiCalendar } from "react-icons/ci";
 import { RxUpdate } from "react-icons/rx";
 import { FiEdit } from "react-icons/fi";
 import { TbFileDescription } from "react-icons/tb";
+import api from '../../api/Api';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import Edit_service from './Edit_service';
 
 
-const Service_popup = ({setShowservice}) => {
+const Service_popup = ({setShowservice, id}) => {
+
+    const [showEdit, setShowEdit] = useState(false);    
+
+    const [service, setService] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    const fetchSingleService = () => {
+        api
+            .get(`v_single_services/${id}`)
+            .then((res) => {
+                console.log(res.data);
+                setService(res.data);
+                setLoading(false);
+            })
+            .catch((err) => {
+                console.error(err);
+                setLoading(false);
+            });
+    };
+
+    useEffect(() => {
+        fetchSingleService();
+    }, [id]);
+
+    if (loading) {
+        return 
+        // <p>Loading...</p>;
+    }
+
+
+    const handleDelete = (id) => {
+        api.delete(`delete_service/${id}`)
+        .then((res) => {
+            setShowservice(false);   // ← just close the popup, auto-refresh will update the list
+            // alert("Service deleted successfully");
+        })
+        .catch((err) => {
+            console.error(err);
+            // alert(err.response?.data || "Something went wrong");
+        });
+    };
+
+    
+
   return (
     <div 
         onClick={() => setShowservice(false)}
@@ -22,11 +70,19 @@ const Service_popup = ({setShowservice}) => {
                 <div className="flex justify-between">
                     <div className='flex-col'>
                         <div className='flex items-center gap-1'>
-                            <p className='text-[23px] font-bold'>Dry cleaning</p>
+                            <p className='text-[23px] font-bold'>{service.s_nme}</p>
                         </div>
 
-                        <div className='h-[20px] w-[80px] text-[13px] rounded-[10px] flex justify-center items-center bg-blue-400'>
-                            <p>available</p>
+                        <div className={`h-[20px] w-[100px] text-[13px] rounded-[10px] flex justify-center items-center ${
+                        service.is_avail
+                            ? "bg-green-100 text-green-700"
+                            : "bg-red-100 text-red-700"
+                        }`}>
+                            <p>
+                                {service.is_avail
+                                ? "Available"
+                                : "Not Available"}
+                            </p>
                         </div>
                     </div>
 
@@ -45,7 +101,7 @@ const Service_popup = ({setShowservice}) => {
                             <p className='text-[12px]'>Estimated</p>
                         </div>
                         <div className='flex items-center justify-center'>
-                            <p>1-2 hr</p>
+                            <p>{service.estimated_t}</p>
                         </div>
                     </div>
 
@@ -55,7 +111,7 @@ const Service_popup = ({setShowservice}) => {
                             <p className='text-[12px]'>Created</p>
                         </div>
                         <div className='flex items-center justify-center'>
-                            <p>1-2 hr</p>   
+                            <p>{new Date(service.cr_at).toLocaleDateString()}</p>   
                         </div>
                     </div>
 
@@ -65,17 +121,17 @@ const Service_popup = ({setShowservice}) => {
                             <p className='text-[12px]'>Updated</p>
                         </div>
                         <div className='flex items-center justify-center'>
-                            <p>1-2 hr</p>
+                            <p>{new Date(service.up_st).toLocaleDateString()}</p>
                         </div>
                     </div>
                 </div>
 
-                <div className='space-y-2'>
+                <div className='space-y-2 h-[90px]'>
                     <div className='flex items-center gap-1'>
                         <TbFileDescription className='text-[#3B82F6]'/>
                         <p>Description</p>
                     </div>
-                    <p className='text-[14px] text-slate-500'>End-to-end development of modern, responsive websites built with the latest technologies and optimized for performance.</p>
+                    <p className='text-[14px] text-slate-500'>{service.disc}</p>
                 </div>
             </div>
 
@@ -83,18 +139,25 @@ const Service_popup = ({setShowservice}) => {
 
             <div className="flex items-center justify-end gap-[15px] ">
 
-                <button className='flex items-center justify-center gap-1 h-[30px] w-[60px] rounded-[10px] shadow'>
+                <button onClick={(e) => {e.stopPropagation(); setShowEdit(true);}} className='flex items-center justify-center gap-1 h-[30px] w-[60px] rounded-[10px] shadow'>
                     <FiEdit className='h-[20px]' />
                     <p className='text-[12px]'>Edit</p>
                 </button>
 
-                <button className='flex items-center justify-center gap-1 h-[30px] w-[80px] bg-[#FEECEC] text-[#EF4444] rounded-[10px] shadow'>
+                <button onClick={(e) => { e.stopPropagation(); handleDelete(id);}} className='flex items-center justify-center gap-1 h-[30px] w-[80px] bg-[#FEECEC] text-[#EF4444] rounded-[10px] shadow'>
                     <img className="h-[20px]" src="cp delete.svg" alt="" />
                     <p className='text-[12px]'>Delete</p>
                 </button>
             </div>
-
         </div>
+
+        {showEdit && (
+                <Edit_service
+                    serviceData={service}
+                    onClose={() => setShowEdit(false)}
+                    fetchServices={fetchSingleService}
+                />
+            )}
     </div>
   )
 }

@@ -2,9 +2,16 @@ import { IoIosAdd } from "react-icons/io";
 import { BsStars } from "react-icons/bs";
 import { FaBoxOpen } from "react-icons/fa6";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import Add_service from "./Add_service";
+import Add_item from "./Add_item";
+import Service from "./Service";
 
-const Service_card = () => {
+
+const Service_card = ({ fetchItems, fetchServices}) => {
+
+  // const [refresh, setRefresh] = useState(false)
 
   const navigate = useNavigate();
 
@@ -17,6 +24,10 @@ const Service_card = () => {
   const isItemActive =
     location.pathname === "/services/item";
 
+  
+  const [Addservice, setAddservice] = useState(false)
+  const [Additem, setAdditem] = useState(false)
+  
 
   return (
     <div className="flex flex-col p-6 gap-10">
@@ -30,11 +41,11 @@ const Service_card = () => {
         </div>
 
         <div className="mt-4 flex gap-4">
-          <button className="h-[33px] w-[100px] bg-[#3A82A4] text-white rounded text-[12px] flex items-center justify-center">
+          <button onClick={() => setAddservice(true)} className="h-[33px] w-[100px] hover:bg-[#3A82A4] transition-all duration-300 border border-[#00000014] rounded text-[12px] flex items-center justify-center">
             <IoIosAdd className="text-[15px]"/> New Service
           </button>
 
-          <button className="h-[33px] w-[80px] bg-[#3A82A4] text-white rounded text-[12px] flex items-center justify-center">
+          <button onClick={() => setAdditem(true)} className="h-[33px] w-[80px] hover:bg-[#3A82A4] transition-all duration-300 border border-[#00000014] rounded text-[12px] flex items-center justify-center">
             <IoIosAdd className="text-[15px]"/> New Item
           </button>
         </div>
@@ -109,6 +120,19 @@ const Service_card = () => {
           </button>
         </div>
       </div>
+
+      {Addservice && (
+          <Add_service 
+            setAddservice={setAddservice}
+            fetchServices={fetchServices}
+          />
+        )}
+      {Additem && (
+          <Add_item 
+          setAdditem={setAdditem}
+          fetchItems={fetchItems}
+          />
+        )}
 
     </div>
   )

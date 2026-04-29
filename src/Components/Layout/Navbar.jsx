@@ -47,10 +47,10 @@ const Navbar = () => {
               Order tracking
             </NavLink>
 
-            <NavLink to="times" className={getNavClass}>
+            {/* <NavLink to="times" className={getNavClass}>
             <img className='h-5' src="cp time.svg" alt="" />
               Popular Times
-            </NavLink>
+            </NavLink> */}
 
             <NavLink to="services" className={getNavClass}>
             <img className='h-5' src="cp sub.svg" alt="" />

@@ -11,7 +11,7 @@ const Directory = () => {
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-  api.get("view_users9")
+  api.get("view_users")
     .then((res) => {
       console.log(res.data);
       setCustomerList(res.data);
@@ -138,6 +138,11 @@ const Directory = () => {
     //     </div>
     //   </div>
     // </div>
+
+
+
+
+    
     <div className="flex flex-col p-6 gap-10">
 
         <div className="border-[1px] border-[#00000014] items-center h-[500px] overflow-y-scroll overflow-x-hidden rounded-[16px]">
