@@ -9,15 +9,26 @@ import Services_Items from './Pages/Services_Items'
 import Dashboard from './Pages/Dashboard'
 import Service from './Components/Services & Items/Service'
 import Item from './Components/Services & Items/Item'
+import Login from './Pages/Login'
 
 
 const router = createBrowserRouter([
+
+  {
+    path: "/",
+    element: <Login />   // 👈 NO navbar/sidebar here
+  },
+
   {
     path: "/",
     element: <Layout/>,
     children: [
+      // {
+      //     path : '/', element:<Login/>
+      //   },
+
       {
-          index : true, element:<Dashboard/>
+          path : 'dashboard', element:<Dashboard/>
         },
 
       {

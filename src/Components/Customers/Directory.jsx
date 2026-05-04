@@ -177,49 +177,35 @@ const Directory = () => {
                       </div>
 
                       <div className="h-[52px] w-[117.77px] flex items-center p-[12px]">
-                        <div
-                          className="h-[25px] w-[80px] rounded-[60px] flex items-center justify-center border"
-                        >
-                          <p
-                            className="text-[13px] font-medium"
-                          >
-                          </p>
-                        </div>
+                        
+                          <p className="text-[13px] font-medium">{customer.Name}</p>
+                        
                       </div>
 
                       <div className="h-[52px] w-[134.72px] flex items-center p-[12px]">
-                        <p className="text-[13px] font-medium">
-                        </p>
+                        <p className="text-[13px] font-medium">{customer.Email}</p>
                       </div>
 
                       <div className="h-[52px] w-[90.31px] flex items-center p-[12px]">
-                        <p className="text-[13px] font-medium">
-                        </p>
+                        <p className="text-[13px] font-medium">{customer.Phone}</p>
                       </div>
 
                       <div className="h-[52px] w-[114.23px] flex items-center p-[12px]">
-                        <div
-                          className="h-[25px] w-[80px] rounded-[60px] flex items-center justify-center border"
-                            
-                        >
-                          <p
-                            className="text-[13px] font-medium"
-                          >
+                          <p className="text-[13px] font-medium">
 
                           </p>
-                        </div>
                       </div>
 
                       
 
-                      <div className="h-[52px] w-[115.92px] flex items-center gap-[15px] p-[12px]">
+                      <div className="h-[52px] w-[115.92px] flex items-center justify-end gap-[15px] p-[12px]">
                           
-                          <div>
+                          {/* <div>
                               
                               <button>
                               <FiEdit />
                               </button>
-                          </div>
+                          </div> */}
 
                           <button>
                               <img className="h-[23px]" src="cp delete.svg" alt="" />

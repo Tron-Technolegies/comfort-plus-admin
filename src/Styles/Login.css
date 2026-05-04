@@ -1,0 +1,124 @@
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#f4f6f8;
+}
+
+
+
+.logo{
+  width: 120px;
+  cursor: pointer;
+}
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 60px;
+  background:#e7f0f6;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:bold;
+  color:#2a7fa5;
+}
+
+.logo span{
+  font-weight:400;
+}
+
+nav a{
+  margin:0 12px;
+  text-decoration:none;
+  color:#3c4b57;
+  font-size:14px;
+}
+
+.nav-buttons button{
+  margin-left:10px;
+}
+
+
+
+.login-btn{
+  background:#2a7fa5;
+  color:white;
+  border:none;
+  padding:8px 16px;
+  border-radius:20px;
+}
+
+
+.login-container{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:80vh;
+}
+
+.login-card{
+  background:white;
+  width:360px;
+  padding:30px;
+  border-radius:8px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.08);
+  border:2px solid #3fa3ff;
+}
+
+.login-card h2{
+  text-align:center;
+  margin-bottom:5px;
+}
+
+.sub-text{
+  text-align:center;
+  color:gray;
+  font-size:13px;
+  margin-bottom:20px;
+}
+
+.input-field{
+  width:100%;
+  padding:10px;
+  margin-bottom:12px;
+  border:1px solid #ddd;
+  border-radius:6px;
+}
+
+.login-options{
+  display:flex;
+  justify-content:space-between;
+  font-size:12px;
+  margin-bottom:15px;
+}
+
+.signin-btn{
+  width:100%;
+  padding:10px;
+  background:#2a7fa5;
+  border:none;
+  color:white;
+  border-radius:6px;
+  margin-bottom:15px;
+}
+
+.google-btn{
+  width:100%;
+  padding:10px;
+  background:#333;
+  color:white;
+  border:none;
+  border-radius:6px;
+}
+
+.signup{
+  text-align:center;
+  font-size:13px;
+  margin-top:15px;
+}
+
+.signup a{
+  color:#2a7fa5;
+  text-decoration:none;
+}

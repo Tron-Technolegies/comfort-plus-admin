@@ -25,7 +25,7 @@ const Navbar = () => {
           <div className='space-y-2'>
             <p className='text-[11px] font-semibold py-1 p-[15px]'></p>
 
-            <NavLink to="/" className={getNavClass}>
+            <NavLink to="dashboard" className={getNavClass}>
               <img className='h-5' src="cp over.svg" alt="" />
               Dashboard
             </NavLink>
